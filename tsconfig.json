@@ -10,13 +10,13 @@
     "paths": {
       "*": [
         "node_modules/*"
-      ]
+      ],
+      "@/*": ["src/*"]
     }
   },
   "exclude": [
     "node_modules",
     "dist",
-    "mysql",
     "public"
   ],
   "include": [

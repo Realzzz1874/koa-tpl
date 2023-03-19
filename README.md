@@ -3,5 +3,7 @@
 Quickly build backend services for my micro apps.
 
 - koa
-- ts
+- mongo
+- mysql/redis
+- ts5
 - vercel
