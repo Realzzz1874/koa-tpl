@@ -1,7 +1,10 @@
-import * as Koa from "koa";
-import * as logger from "koa-logger";
+import * as Koa from 'koa';
+import * as Logger from 'koa-logger';
+import { koaBody } from 'koa-body';
+import { Context } from '@/core/koa';
+import router from './routes';
 
-const __DEV__ = process.env.NODE_ENV === "dev";
+const __DEV__ = process.env.NODE_ENV === 'dev';
 
 class Application {
   private app: Koa;
@@ -9,15 +12,26 @@ class Application {
     this.app = new Koa();
     this.init();
   }
+
   private init() {
     if (__DEV__) {
-      this.app.use(logger());
+      this.app.use(Logger());
     }
-    this.app.use(async (ctx, next: () => Promise<any>) => {
+
+    this.app.use(
+      koaBody({
+        multipart: true,
+      })
+    );
+
+    // routes
+    this.app.use(router.routes());
+
+    this.app.use(async (ctx: Context, next: () => Promise<any>) => {
       const path = ctx.request.path;
       console.log(`path====>: ${path}`);
       if (path === '/') {
-        ctx.body = "Hello World!";
+        ctx.body = 'Hello World!';
       }
       await next();
     });
@@ -25,9 +39,7 @@ class Application {
 
   public start(port: number) {
     this.app.listen(port, (): void => {
-      console.log(
-        `server has started, running with: http://127.0.0.1:${port}.`
-      );
+      console.log(`server has started, running with: http://127.0.0.1:${port}`);
     });
   }
 }
