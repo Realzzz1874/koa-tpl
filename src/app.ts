@@ -4,8 +4,8 @@ import { koaBody } from 'koa-body';
 import { Context } from '@/core/koa';
 import router from './routes';
 
-import response from './middlewares/response';
-import { ErrorResponseCode, ErrorResponseMsg } from './types';
+import response from './middleware/response';
+// import { ErrorResponseCode, ErrorResponseMessage } from './types';
 
 const __DEV__ = process.env.NODE_ENV === 'dev';
 
@@ -36,8 +36,11 @@ class Application {
       const path = ctx.request.path;
       console.log(`path====>: ${path}`);
       if (path === '/') {
-        // ctx.success('Hello World!');
-        ctx.error(ErrorResponseCode.DEFAULT_ERROR_CODE, ErrorResponseMsg.DEFAULT_ERROR);
+        ctx.success('Hello World!');
+        // ctx.error(
+        //   ErrorResponseCode.DEFAULT_ERROR_CODE,
+        //   ErrorResponseMessage.DEFAULT_ERROR
+        // );
       }
       await next();
     });
