@@ -12,8 +12,8 @@ const response = async (ctx: Context, next: Koa.Next) => {
 
   // error
   ctx.error = (
+    message = '',
     code = Types.ErrorResponseCode.DEFAULT_ERROR_CODE,
-    message = Types.ErrorResponseMessage.DEFAULT_ERROR,
     data = null,
     status = Types.ResponseStatus.SYSTEM_ERROR
   ) => {
