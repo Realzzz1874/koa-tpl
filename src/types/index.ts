@@ -1,5 +1,5 @@
 declare module 'koa' {
-  interface DefaultState {}
+  interface DefaultState { }
   interface DefaultContext {
     success: TSuccess;
     error: TError;
@@ -27,8 +27,8 @@ export enum ErrorResponseMessage {
 export type TSuccess = (data?: any, status?: ResponseStatus) => void;
 
 export type TError = (
-  code: ErrorResponseCode,
-  message?: ErrorResponseMessage,
+  message: ErrorResponseMessage | string,
+  code?: ErrorResponseCode | number,
   data?: any,
   status?: ResponseStatus
 ) => void;
