@@ -2,9 +2,9 @@ import * as Koa from 'koa';
 import * as Logger from 'koa-logger';
 import { koaBody } from 'koa-body';
 import { Context } from '@/core/koa';
-import router from './routes';
-
+import db from './database/connect';
 import Middleware from './middleware';
+import router from './routes';
 
 const __DEV__ = process.env.NODE_ENV === 'dev';
 
@@ -13,6 +13,13 @@ class Application {
   constructor() {
     this.app = new Koa();
     this.init();
+    db.initialize()
+      .then(() => {
+        console.log(`====> Data Source has been initialized!`);
+      })
+      .catch((err) => {
+        console.error(`====> Data Source initialize err:\n${err}`);
+      });
   }
 
   private init() {
