@@ -7,6 +7,7 @@ const response = async (ctx: Context, next: Koa.Next) => {
     ctx.status = status;
     ctx.body = {
       data,
+      t: new Date().getTime(),
     };
   };
 
@@ -22,6 +23,7 @@ const response = async (ctx: Context, next: Koa.Next) => {
       code,
       message,
       data,
+      t: new Date().getTime(),
     };
   };
 
