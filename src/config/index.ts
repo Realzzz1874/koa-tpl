@@ -10,9 +10,9 @@ export default {
     database: 'test',
     synchronize: true,
     logging: false,
-    entities: ['../entity/*.ts'],
+    entities: ['src/entity/*.ts'],
     cli: {
-      entitiesDir: '../src/entity',
+      entitiesDir: 'src/entity',
     },
   } as DataSourceOptions,
 };
