@@ -1,8 +1,10 @@
 import { Context } from '@/core/koa';
+import UserModel from '../model/User';
 export default class TestController {
   static async testGet(ctx: Context) {
     // ctx.success('test done');
-    ctx.error('error');
+    const user = await UserModel.addUser();
+    ctx.success(user);
   }
 
   static async testPost(ctx: Context) {
