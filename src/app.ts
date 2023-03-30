@@ -33,6 +33,7 @@ class Application {
       })
     );
 
+    // 注册中间件
     Middleware(this.app);
 
     // routes
@@ -50,7 +51,9 @@ class Application {
 
   public start(port: number) {
     this.app.listen(port, (): void => {
-      console.log(`server has started, running with: http://127.0.0.1:${port}`);
+      console.log(
+        `====> server has started, running with: http://127.0.0.1:${port}`
+      );
     });
   }
 }
