@@ -1,6 +1,6 @@
 # koa-tpl
 
-Quickly build backend services for my micro apps.
+Quickly build backend services for my side-micro Apps.
 
 - koa
 - mongo

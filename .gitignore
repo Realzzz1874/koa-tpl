@@ -108,3 +108,9 @@ package-lock.json
 yarn.lock
 
 .vscode/
+
+
+######### app
+
+# config
+src/config/prod.mysql.ts

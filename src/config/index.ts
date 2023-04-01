@@ -1,4 +1,4 @@
-import mysql from './mysql';
+import mysql from './env.mysql';
 export default {
   mysql,
 };
