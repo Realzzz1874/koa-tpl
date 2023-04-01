@@ -1,7 +1,7 @@
 {
   "name": "koa-tpl",
   "version": "1.0.0",
-  "description": "Quickly build backend services for my micro apps.",
+  "description": "Quickly build backend services for my side-micro apps.",
   "main": "index.js",
   "scripts": {
     "build": "rimraf dist/* && tsc && node dist/index.js",
